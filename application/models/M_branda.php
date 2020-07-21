@@ -13,8 +13,35 @@ class M_branda extends CI_Model{
 
 
     public function getNewsBloglimit (){
-    	$hasil= $this->db->query('select * from db_blogs.article order by ID_title desc limit 9');
-		return $hasil->result();	
+    	$hasil= $this->db->query('select * from db_blogs.article order by ID_title desc limit 28')->result();
+
+		// return $hasil->result();
+
+		for ($i=0; $i < count($hasil); $i++) { 
+			$hasil[$i]->CreateAT=date("d M, Y", strtotime($hasil[$i]->CreateAT));
+			$string=$hasil[$i]->Title;
+	        $replace = '-';         
+	        $string = strtolower($string);     
+	        //replace / and . with white space     
+	        $string = preg_replace("/[\/\.]/", " ", $string);     
+	        $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);     
+	        //remove multiple dashes or whitespaces     
+	        $string = preg_replace("/[\s-]+/", " ", $string);     
+	        //convert whitespaces and underscore to $replace     
+	        $string = preg_replace("/[\s_]/", $replace, $string);
+
+	        $slug=$string;
+	        $hasil[$i]->SEO_title=$slug;
+			$url=url_blog_admin.'upload/'.$hasil[$i]->Images;
+			
+			$cek=$this->is_url_exist($url);
+			if(!$cek){
+				$hasil[$i]->Images='default.png';
+			}
+
+		}
+
+		return $hasil;	
     }
 
 

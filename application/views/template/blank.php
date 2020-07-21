@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?= base_url('assets/js/mdb.min.js')?>"></script>
 	<script src="<?= base_url('assets/js/universal-parallax.min.js')?>"></script>
 	<script src="<?= base_url('assets/img-fitter/jquery.imgFitter.js')?>" type="text/javascript"></script>
+	<script src="<?= base_url('assets/js/owlcarousel/owl.carousel.min.js'); ?>"></script> 
 
 	<!-- JWT Encode -->
     <script type="text/javascript" src="<?= base_url('assets/jwt/encode/hmac-sha256.js');?>"></script>
@@ -39,8 +40,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		$(document).ready(function () {
 
-	        window.base_url_js = "<?= url_server ?>";//routes url_blogs in index.php
+	        window.base_blog = "<?= url_blog ?>";//routes url_blogs in index.php
 	       	window.base_url_js_sw = "<?= url_blog_admin ?>"; //routes url_blogs_admin in index.php
+	       	window.base_url_js = "<?= url_server ?>";
 
 	    });
 
@@ -76,12 +78,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  margin-left: 3px;
 	}
 
-	.top-nav-collapse {
+/*	.top-nav-collapse {
 	  background-color: #2BBBAD !important;
 	  padding-top: 10px !important;
 	  webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 		box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-	}
+	}*/
 
 	.navbar:not(.top-nav-collapse) {
 	  background: transparent !important;
@@ -90,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	@media (max-width: 991px) {
 	  .navbar:not(.top-nav-collapse) {
 	    /*background: #424f95 !important;*/
-	     background: transparent !important;
+	     background: #fff !important;
 	  }
 	}
 
@@ -109,109 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
 	  background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
 	}
-	.bg-white{ 
-		background-color: white !important;
-	}
-	.top-nav-collapse .text-white{
-		color: #000 !important;
-	}
-	.top-nav-collapse .navscrool{
-		opacity: 0;
-	}
-	.navscrool2{
-		opacity: 0;
-	}
-	.navscrool{
-		opacity: 10;
-	}
-	.hide{
-		display: none;
-	}
-	.active{
-		display: block;
-	}
-	.card.card-cascade.wider.reverse .card-body.card-body-cascade {
-	    z-index: 3;
-	    margin-top: -5.5rem;
-	    border-radius: .25rem !important;
-	    -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
-	    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
-	}
-	#AllBanner .card {
-	    border: 0;
-	    -webkit-box-shadow: none;
-	    box-shadow: none;
-	}
-	#AllBanner a:hover .card-up {
-	    -webkit-filter: grayscale(0%);
-	    filter: grayscale(0%);
-	    opacity: 1;
-	}
-	#AllBanner a .card-up {
-	    max-width: 90%;
-	    -webkit-filter: grayscale(100%);
-	    filter: grayscale(100%);
-	    opacity: .8;
-	    max-height: 100%;
-	}
-	#AllBanner .carousel-inner {
-	    position: relative;
-	     width: auto;
-	    overflow: hidden;
-	}
-	#AllBanner .control-center {
-	    position: relative;
-	    top: 0px;
-	}
-	#AllBanner .carousel-multi-item .controls-top {
-	    margin-bottom: 0;
-	    text-align: center;
-	}
-	#AllBanner .card-wrapper .card-up {
-	    height: 90px;
-	    overflow: hidden;
-	}
-	#AllBanner .carousel-multi-item {
-	    margin-bottom: 0;
-	}
-	#AllBanner .carousel-multi-item .controls-top .btn-floating {
-	    background: transparent;
-	    box-shadow: none;
-	}
-	time {
-	    display: inline-block;
-	    width: 100%;
-	    color: rgb(255, 255, 255);
-	    background-color: rgba(66, 133, 244, 0.79);
-	    padding: 5px;
-	    text-align: center;
-	    text-transform: uppercase;
-	  }
 
-	time > span {
-		display: none;
-	}
-	time > .day {
-		display: block;
-		font-size: 50pt;
-		font-weight: 100;
-		line-height: 1;
-	}
-	time > .month {
-			display: block;
-			font-size: 20pt;
-			font-weight: 900;
-			line-height: 1;
-	}
-	.carousel .carousel-control-prev-icon, .carousel .carousel-control-next-icon {
-	    width: 40px;
-	    height: 40px;
-	}
-	#LatesNews .card {
-	    border: 0;
-	    -webkit-box-shadow: none;
-	    box-shadow: none;
-	}
 	</style>
 </head>
 <!-- ======= Body ====== -->
@@ -228,18 +128,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 			</button>
-
+			<!-- mobile -->
+			<a href="<?= base_url() ?>" class="navbar-brand mobile-nav-logo mx-auto hide" style="width: 15%;"><img src="<?= base_url() ?>assets/img/logo_Low.png" alt="Podomoro University"></a>
 			<!-- Collapsible content -->
 			<div class="collapse navbar-collapse justify-content-left " id="navbarSupportedContent2">
 
 				<!-- Links -->
-				<ul class="navbar-nav nav lighten-4 py-2 mr-4">					
+				<ul class="navbar-nav nav lighten-4 py-2 mr-4 pb-md-0">					
 					
 					<li class="nav-item px-3">
-						<a href="<?= base_url('about') ?>" class="nav-link text-uppercase text-hover-red text-white">News </a>
+						<a href="<?= base_url('') ?>" class="nav-link text-uppercase text-hover-red text-white">News </a>
 					</li>	
 					<li class="nav-item px-3">
-						<a href="<?= base_url('about') ?>" class="nav-link text-uppercase text-hover-red text-white">Event </a>
+						<a href="<?= base_url('') ?>" class="nav-link text-uppercase text-hover-red text-white">Event </a>
 					</li>	
 					<li class="nav-item px-3">
 						<a href="<?= base_url() ?>" class="nav-link text-uppercase text-hover-red text-white">Career </a>
@@ -251,21 +152,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!-- Navbar brand -->
 			<a href="<?= base_url() ?>" class="navbar-brand nav-logo mx-auto active" id="showPutih" style="width: 15%;"><img src="<?= base_url() ?>assets/img/LOGO-Podomoro-University-L-mono-W.png" alt="Podomoro University"></a>
 			<a href="<?= base_url() ?>" class="navbar-brand nav-logo mx-auto hide" id="showColor" style="width: 15%;"><img src="<?= base_url() ?>assets/img/logo_Low.png" alt="Podomoro University"></a>
-
+			
 			<!-- Collapsible content -->
 			<div class="collapse navbar-collapse justify-content-end ml-auto" id="navbarSupportedContent2">
 
 				<!-- Links -->
-				<ul class="navbar-nav nav lighten-4 py-2 mr-4">
+				<ul class="navbar-nav nav lighten-4 py-2 mr-4 pt-md-0">
 					<li class="nav-item px-3">
-						<a href="<?= base_url('contact') ?>" class="nav-link text-uppercase text-hover-red text-white">About Us </a>
+						<a href="<?= base_url('') ?>" class="nav-link text-uppercase text-hover-red text-white">About Us </a>
 					</li>
 					
 					<li class="nav-item px-3">
-						<a href="<?= base_url('about') ?>" class="nav-link text-uppercase text-hover-red text-white">Community </a>
+						<a href="<?= base_url('') ?>" class="nav-link text-uppercase text-hover-red text-white">Community </a>
 					</li>
 					<li class="nav-item px-3">
-						<a href="<?= base_url('contact') ?>" class="nav-link text-uppercase text-hover-red text-white">Contact </a>
+						<a href="<?= base_url('') ?>" class="nav-link text-uppercase text-hover-red text-white">Contact </a>
 					</li>					
 				</ul>
 
@@ -316,9 +217,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li>
                             	<a target="_blank" href="https://portal.podomorouniversity.ac.id/"><lang>Portal</lang></a>
                             </li><hr>
-                            <li>
+                            <!-- <li>
                             	<a target="_blank" href="http://www.alumni.podomorouniversity.ac.id/"><lang>Alumni</lang></a>
-                            </li>
+                            </li> -->
                             <li>
                             	<a target="_blank" href="http://www.repository.podomorouniversity.ac.id"><lang>PU Repository</lang></a>
                             </li>
@@ -456,21 +357,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </script>
 <script type="text/javascript">
-	$('.carousel.carousel-multi-item.v-2 .carousel-item').each(function(){
-		var next = $(this).next();
-		if (!next.length) {
-		next = $(this).siblings(':first');
-		}
-		next.children(':first-child').clone().appendTo($(this));
+  $(document).ready(function () {
+    $('.img-fitter').imgFitter({
+        // CSS background position
+        backgroundPosition: 'center center',
+        // for image loading effect
+        fadeinDelay: 400,
+        fadeinTime: 1200
 
-		for (var i=0;i<4;i++) {
-		next=next.next();
-		if (!next.length) {
-		  next=$(this).siblings(':first');
-		}
-		next.children(':first-child').clone().appendTo($(this));
-		}
-	});
+    });
+  })
+</script>
+<script type="text/javascript">
+		// $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function(){			
+		// 	var next = $(this).next();
+		// 	if (!next.length) {
+		// 	next = $(this).siblings(':first');
+		// 	}
+		// 	next.children(':first-child').clone().appendTo($(this));
+
+		// 	for (var i=0;i<4;i++) {
+		// 	next=next.next();
+		// 	if (!next.length) {
+		// 	  next=$(this).siblings(':first');
+		// 	}
+		// 	console.log('ok');
+		// 	next.children(':first-child').clone().appendTo($(this));
+		// 	}
+		// });
 </script>
 
 <!-- ======= Footer ====== -->

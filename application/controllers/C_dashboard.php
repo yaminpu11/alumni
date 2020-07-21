@@ -38,8 +38,9 @@
     
     function about()
     {
-      $content = $this->load->view('template/V_about','',true);
-      parent::template($content);
+      print_r('ok');die();
+      // $content = $this->load->view('template/V_about','',true);
+      // parent::template($content);
     }
 
     function contact()
