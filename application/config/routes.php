@@ -53,46 +53,7 @@ $route['default_controller'] = 'c_dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['category/(:num)'] = 'c_dashboard/category/$1';
-$route['details/(:num)'] = 'c_dashboard/details/$1';
-$route['category'] = 'c_dashboard/category';
-$route['about'] = 'c_dashboard/about';
-$route['contact'] = 'c_dashboard/contact';
-$route['search'] = 'c_dashboard/search';
-
 
 // News 
 $route['getapinewsbyblog'] = 'c_branda/load_newsbyblog';
 
-
-
-// ==== Read Data ===== //
-$route['__load_about'] = 'c_branda/load_about';
-$route['__details'] = 'c_branda/load_details';
-$route['__load_slide1'] = 'c_branda/load_slide1';
-$route['__load_slide2'] = 'c_branda/load_slide2';
-$route['__load_slide3'] = 'c_branda/load_slide3';
-$route['__load_slide4'] = 'c_branda/load_slide4';
-$route['__load_slide5'] = 'c_branda/load_slide5';
-$route['__load_slide6'] = 'c_branda/load_slide6';
-
-$route['__load_category'] = 'c_branda/load_category';
-$route['__load_categorytop'] = 'c_branda/load_categorytop';
-$route['__load_categorytop1'] = 'c_branda/load_categorytop1';
-$route['__load_recent_post'] = 'c_branda/load_recentPost';
-$route['__load_recent_post1'] = 'c_branda/load_recentPost1';
-$route['__load_recommend'] = 'c_branda/load_recommend';
-$route['__load_recommend1'] = 'c_branda/load_recommend1';
-$route['__load_comment'] = 'c_branda/show_comment';
-$route['__load_childcomment'] = 'c_branda/show_childcomment';
-$route['__load_bycategory'] = 'c_branda/show_bycategory';
-$route['__load_rata'] = 'c_branda/show_rata';
-
-
-$route['__save_contact'] = 'c_branda/save_contact';
-$route['__save_comment'] = 'c_branda/save_comment';
-$route['__save_childcomment'] = 'c_branda/save_childcomment';
-$route['__save_rating'] = 'c_branda/save_rating';
-
-// search
-$route['__details_search'] = 'c_branda/details_search';

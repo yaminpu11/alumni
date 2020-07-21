@@ -13,11 +13,10 @@
     }
 
 
-
     // News BY Blog
 
     function load_newsbyblog(){
-        print_r('ok');die();
+        // print_r('ok');die();
         $data=$this->m_branda->getNewsBloglimit();
         echo json_encode($data);
     }

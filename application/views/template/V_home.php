@@ -3,12 +3,10 @@
       <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner overlay">
           <div class="carousel-item active mask rgba-white-slight">
-            <img class="d-block w-100" src="<?= base_url('assets/img/Slider/alumni.png') ?>"
-              alt="First slide">
+            <img class="d-block w-100 img-fitter" data-src="<?= base_url('assets/img/Slider/alumni.png') ?>" height="660px"  alt="First slide" >
           </div>
           <div class="carousel-item mask rgba-white-slight">
-            <img class="d-block w-100" src="<?= base_url('assets/img/Slider/wisuda.png') ?>"
-              alt="Second slide">
+            <img class="d-block w-100 img-fitter" data-src="<?= base_url('assets/img/Slider/wisuda.png') ?>" height="660px" alt="Second slide">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -218,7 +216,7 @@
 
 
 <section class="text-center pb-5">
-  <a><button type="button" class="btn btn-red btn-rounded waves-effect waves-light">Login To Alumni Dasboard</button></a>
+  <a href="https://portal.podomorouniversity.ac.id/portal-login" target="_blank"><button type="button" class="btn btn-red btn-rounded waves-effect waves-light">Login To Alumni Dasboard</button></a>
 </section>
 
 
@@ -257,7 +255,7 @@
           class="fas fa-chevron-right"></i></a>
     </div>
 
-    <div class="carousel-inner v-2 pt-2" role="listbox" id="ViewNewsLimit">
+    <div class="owl-carousel carousel-inner v-2 pt-2 row w-100 h-100 mx-auto" role="listbox" id="ViewNewsLimit">
 
       <!-- <div class="carousel-item active">
         <div class="col-12 col-md-2">
@@ -414,62 +412,9 @@
   </div>
 </section>
 
-
-<script type="text/javascript">
-  function loadImgFitter(){
-    $('.img-fitter').imgFitter({
-
-                // CSS background position
-                backgroundPosition: 'center center',
-
-                // for image loading effect
-                fadeinDelay: 400,
-                fadeinTime: 1200
-
-            });
-  }
-</script>
-
 <script type="text/javascript">
   $(document).ready(function () { 
-    getdataBlogsByApi('news','#ViewNewsLimit');
-  }); 
-
-  // function getdataBlogsByApi() {
-  //     var locimg = base_url_js_sw+'upload/';
-  //     $.ajax({
-  //       type : 'POST',
-  //       url : base_url_js_sw+'__getapiblogs',
-  //       dataType : 'json',
-  //       data:{limit:12},
-          // headers: {"Authorization": localStorage.getItem('token')}
-  //       success : function(data){
-  //         // console.log(jsonResult);
-  //         var html = '';
-  //         if(data.length>0){
-  //             var d = data[0];
-  //             html ='<div class="carousel-item">'+
-  //                     '<div class="col-12 col-md-2">'+
-  //                       '<div class="card card-wrapper mb-2">'+
-  //                         '<div class="card-up" style="background-image: url('+locimg+''+data.Images+'); background-size: contain; background-position: center;background-repeat: no-repeat;">'+
-                          
-  //                         '</div>'+
-
-  //                         '<div class="card-body mx-2">'+
-  //                           '<p class="card-title font-weight-bold">'+data.Title+'</p>'+
-  //                           '<p class="card-text">'+data.Content+'</p>'+
-  //                           '<a href="" class="btn btn-primary btn-md btn-rounded float-right">More Detail</a>'+
-  //                         '</div>'+
-  //                       '</div>'+
-  //                     '</div>'+
-  //                   '</div>';
-  //           }         
-  //             $('.carousel-item').first().addClass('active');       
-  //             $('#ViewNewsLimit').append(html);
-         
-  //       }
-  //     });
-
-  // }
+    getdataBlogsByApi1('news','#ViewNewsLimit');
+  });   
 
 </script>
