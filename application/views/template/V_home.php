@@ -32,7 +32,7 @@
                   class="fas fa-chevron-right text-muted"></i></a>
             </div>
 
-            <div class="carousel-inner v-2 pt-2 w-90" role="listbox">
+            <div class="carousel-inner v-2 pt-2 w-90" role="listbox" id="ViewTestimonial">
 
               <div class="carousel-item active">
                 <div class="col-12 col-md-12">
@@ -415,6 +415,7 @@
 <script type="text/javascript">
   $(document).ready(function () { 
     getdataBlogsByApi1('news','#ViewNewsLimit');
+    getdataTestimonial('testimonial','#ViewTestimonial');
   });   
 
 </script>
