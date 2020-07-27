@@ -12,7 +12,12 @@
         $this->load->helper('url');
     }
 
-
+    // Testimonial
+    function load_testimonial(){
+        // print_r('ok');die();
+        $data=$this->m_branda->getTestimonial();
+        echo json_encode($data);
+    }
     // News BY Blog
 
     function load_newsbyblog(){

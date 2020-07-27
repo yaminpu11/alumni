@@ -81,44 +81,40 @@ function getdataBlogsByApi1(type, element) {
         
     });
 
-  }
+}
 
+function getdataTestimonial(type, element) {
 
-
-//   function getdataBlogsByApi() {
-
-//     $.ajax({
-//       type : 'POST',
-//       url : base_url_js_sw+'__getapiblogs',
-//       dataType : 'json',
-//       data:{limit:12},
-//       success : function(data){
-//         // console.log(jsonResult);
-//         var html = '';
-//         if(data.length>0){
-//             var d = data[0];
-//             html ='<div class="carousel-item active">'+
-//                     '<div class="col-12 col-md-2">'+
-//                       '<div class="card card-wrapper mb-2">'+
-//                         '<div class="card-up" style="background-image: url(<?= base_url('assets/img/jobs/LOGO-AGUNG-PODOMORO-LAND.png')?>); background-size: contain; background-position: center;background-repeat: no-repeat;">'+
+    var data = {
+        type : type,
+    };
+    var token = jwt_encode(data,'UAP)(*');
+    var url = url = base_url_js+'getDataTestimonial';
+    var locimg = base_url_js_sw+'upload/';
+    $.post(url,{token:token},function (response) {
+        ;
+        var jsonResult = response.preventDefault();     
+        alert(jsonResult);       
+        if(jsonResult.length>0){               
+            $.each(response,function (i,v) {
+                strtittlew1 = v.Title;
+                var titleres1 = (strtittlew1.length>50) ? strtittlew1.split(' ')[0]+' '+strtittlew1.split(' ')[1]+' '+strtittlew1.split(' ')[2]+' '+strtittlew1.split(' ')[3]+'...' : strtittlew1;
+                
+                str = v.Content;
+                var res = str.substring(80,0);
+                var activeLink = (i == 0) ? 'active' : '';
+                // alert(count);
+                $('#ViewTestimonial').append('<div class="carousel-item '+activeLink+'">'+
+                    '<div class="col-12 col-md-12">'+
+                      '<div class="card card-wrapper mb-2 font-italic">'+
+                        '<h4 class="text-primary font-weight-bold mt-4 text-italic"><i>'+v.Name+'</i></h4>'+
+                        '<p class="font-weight-normal"><i><i class="fas fa-quote-left pr-2"></i>'+v.Testimony+'<i class="fas fa-quote-right pr-2"></i></i></p>'+
                         
-//                         '</div>'+
-
-//                         '<div class="card-body mx-2">'+
-//                           '<p class="card-title font-weight-bold">Some quick example</p>'+
-//                           '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content</p>'+
-//                           '<a class="btn btn-primary btn-md btn-rounded float-right">More Detail</a>'+
-//                         '</div>'+
-//                       '</div>'+
-//                     '</div>'+
-//                   '</div>';
-
-
-//             $('#ViewNewsLimit').append(html);
-
-
-//         }
-//       }
-//     });
-
-// }
+                      '</div>'+
+                    '</div>'+
+                  '</div>');
+            })
+        }
+        
+    })
+}

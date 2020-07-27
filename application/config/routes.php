@@ -53,7 +53,8 @@ $route['default_controller'] = 'c_dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-
+// Testimonial 
+$route['getDataTestimonial'] = 'c_branda/load_testimonial';
 // News 
 $route['getapinewsbyblog'] = 'c_branda/load_newsbyblog';
 

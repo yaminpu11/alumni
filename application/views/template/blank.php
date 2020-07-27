@@ -208,30 +208,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li>
-                            	<a href="<?php echo base_url(''); ?>"><lang>Home</lang></a>
-                            </li>
+                            
                             <li>
                             	<a target="_blank" href="https://podomorouniversity.ac.id"><lang>Podomoro University</lang></a>
                             </li>
                             <li>
                             	<a target="_blank" href="https://portal.podomorouniversity.ac.id/"><lang>Portal</lang></a>
-                            </li><hr>
+                            </li>
+                            <li>
+                            	<a target="_blank" href="https://www.repository.podomorouniversity.ac.id"><lang>PU Repository</lang></a>
+                            </li>
+                            
+                            <hr>
+                            
+                            <li>
+                            	<a target="_blank" href="https://journal.podomorouniversity.ac.id/"><lang>PU Journal</lang></a>
+                            </li>
+                            <li>
+                            	<a target="_blank" href="https://cblibrary.podomorouniversity.ac.id/"><lang>Library</lang></a>
+                            </li>
+                            <li>
+                            	<a target="_blank" href="https://blogs.podomorouniversity.ac.id/"><lang>Blogs</lang></a>
+                            </li>
                             <!-- <li>
-                            	<a target="_blank" href="http://www.alumni.podomorouniversity.ac.id/"><lang>Alumni</lang></a>
-                            </li> -->
-                            <li>
-                            	<a target="_blank" href="http://www.repository.podomorouniversity.ac.id"><lang>PU Repository</lang></a>
-                            </li>
-                            <li>
-                            	<a target="_blank" href="http://journal.podomorouniversity.ac.id/"><lang>PU Journal</lang></a>
-                            </li>
-                            <li>
-                            	<a href="<?php echo base_url('penelitian'); ?>"><lang>Research</lang></a>
-                            </li>
-                            <li>
                             	<a href="<?php echo base_url('mahasiswa'); ?>"><lang>Student</lang></a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
